@@ -1,0 +1,10 @@
+.wrapper {
+    margin-inline: auto;
+    width: clamp(16rem, 95vw, 85rem);
+    padding-inline: clamp(1rem, -0.0769rem + 3.0769vw, 2rem);
+    position: relative;
+}
+
+.wrapper[data-flush] {
+    padding-inline: 0;
+}

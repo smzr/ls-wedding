@@ -1,0 +1,49 @@
+---
+import { SITE_TITLE } from '../config';
+import { Icon } from 'astro-icon'
+
+const today = new Date();
+---
+
+<footer>
+	<p>&copy; {today.getFullYear()} {SITE_TITLE}. All rights reserved.</p>
+	<nav>
+		<a href="mailto:sammy@smzr.co.uk" title="Email Sammy McKay"><Icon name="ph:at-bold" /></a>
+		<a href="https://github.com/smzr" title="@smzr on GitHub"><Icon name="mdi:github" /></a>
+		<a href="https://www.linkedin.com/in/smzr" title="@smzr on LinkedIn"><Icon name="mdi:linkedin" /></a>
+		<a href="https://codepen.io/smzr" title="@smzr on CodePen"><Icon name="mdi:codepen" /></a>
+		<!-- <a href="/feed.xml"><Icon name="mdi:rss" /></a> -->
+	</nav>
+</footer>
+<style lang="scss">
+	footer {
+		margin-top: clamp(3rem, -0.2308rem + 9.2308vw, 6rem);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.5rem 2rem;
+		line-height: 1;
+		font-size: var(--s-xs);
+
+		@media (max-width: 40rem) {
+			flex-direction: column-reverse;
+			gap: 2rem;
+		}
+	}
+
+	nav {
+		display: flex;
+		gap: 1.5rem;
+	}
+
+	[astro-icon] {
+		width: 2rem;
+		height: 2rem;
+		color: var(--c-primary);
+		transition: all 200ms ease-in;
+
+		&:hover {
+			color: var(--c-orange);
+		}
+	}
+</style>

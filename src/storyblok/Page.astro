@@ -1,0 +1,18 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+const { blok } = Astro.props;
+---
+<main {...storyblokEditable(blok)} id="main-content" tabindex="-1">
+    {
+        blok.body?.map((blok: any) => {
+        return <StoryblokComponent blok={blok} />
+        })
+    }
+</main>
+<style>
+    main {
+        margin-top: clamp(3rem, -0.2308rem + 9.2308vw, 6rem);
+    }
+</style>

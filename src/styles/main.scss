@@ -1,0 +1,102 @@
+@import 'reset';
+@import 'fonts';
+
+:root {
+    scroll-behavior: smooth;
+    --s-giant: clamp(2.25rem, 1.75rem + 2.5vw, 3.75rem);
+    --s-huge: clamp(1.75rem, 1.3333rem + 2.0833vw, 3rem);
+    --s-xxl: clamp(1.5rem, 1.25rem + 1.25vw, 2.25rem);
+    --s-xl: clamp(1.25rem, 1.0833rem + 0.8333vw, 1.75rem);
+    --s-lg: clamp(1.125rem, 1.0833rem + 0.2083vw, 1.25rem);
+    --s-md: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem);
+    --s-sm: 1rem;
+    --s-xs: clamp(0.75rem, 0.7083rem + 0.2083vw, 0.875rem);
+
+    --gutter: clamp( 1.375rem, 1.2rem + .89vw, 2rem );
+
+    --c-primary: #FBBA72;
+    --c-secondary: #{lighten(#FBBA72, 10%)};
+    --c-orange: #FF3C38;
+    --c-black: #15251F;
+}
+
+::selection {
+	color: white;
+	background-color: rgba( #FF3C38, 0.4 );
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: #151514;
+    min-height: 100vh;
+    color: var(--c-secondary);
+    font-family: 'Montserrat', sans-serif;
+    font-size: var(--s-md);
+    line-height: 1.7;
+
+    &::before {
+        content: '';
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(145deg, #151514, #3D3E2F) no-repeat;
+        z-index: -999;
+    }
+
+    main {
+        flex: 1;
+
+        section + section {
+            margin-top: 6rem;
+        }
+    }
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Vollkorn', serif;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--c-primary);
+}
+
+h4 {
+    color: var(--c-primary);
+}
+
+h1 { font-size: var(--s-xxl); }
+h2 { font-size: var(--s-xl); }
+h3 { font-size: var(--s-lg); }
+h4 { font-size: var(--s-md); }
+
+a {
+    color: var(--c-orange);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// COMPOSITIONS
+
+// BLOCKS
+@import 'blocks/button';
+@import 'blocks/eyebrow';
+@import 'blocks/prose';
+
+// UTILITIES
+@import 'utilities/flow';
+@import 'utilities/wrapper';

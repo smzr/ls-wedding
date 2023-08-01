@@ -1,0 +1,24 @@
+.button {
+    background-color: var(--c-primary);
+    border-radius: 2em;
+    padding: 1em 3.5em;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    outline: 2px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    line-height: 1 !important;
+    font-weight: 500;
+    color: var(--c-black);
+    transition: outline 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+        outline: 2px solid var(--c-orange);
+        outline-offset: 1px;
+        text-decoration: none;
+    }
+}

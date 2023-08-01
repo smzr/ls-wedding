@@ -1,0 +1,11 @@
+.eyebrow {
+    text-transform: uppercase;
+    line-height: 1;
+    font-size: var(--s-xs);
+    color: var(--c-primary);
+    letter-spacing: 0.1em;
+}
+
+.eyebrow + :is(h1, h2, h3, h4) {
+    --flow-space: 1rem;
+}

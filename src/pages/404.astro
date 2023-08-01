@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE_DESCRIPTION } from '../config';
+---
+<Layout title="Page Not Found" description={SITE_DESCRIPTION}>
+    <main id="main-content" tabindex="-1">
+        <article class="flow">
+            <h1>404: Not Found</h1>
+            <p>The page <code>{Astro.url.pathname}</code> does not exist</p>
+            <a href="/" class="button">Back to Home</a>
+        </article>
+    </main>
+</Layout>
+<style>
+    main {
+        display: grid;
+        place-items: center;
+    }
+    article {
+        text-align: center;
+    }
+    h1 { 
+        font-size: var(--s-giant); 
+    }
+    code {
+        background: rgba(0, 0, 0, 0.1);
+        padding: 0.25rem;
+        border-radius: 0.25rem;
+    }
+    .button {
+        --flow-space: 2rem;
+    }
+</style>

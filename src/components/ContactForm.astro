@@ -1,0 +1,89 @@
+<div class="form flow">
+    <h2>Contact Form</h2>
+    <hr>
+    <form
+        netlify
+        class="flow"
+        name="contact"
+        method="POST"
+        action="/thank-you"
+        >
+        <input type="hidden" name="form-name" value="contact" />
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" />
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required />
+        <label for="contact-number">Contact Number</label>
+        <input id="contact-number" type="text" name="contact-number" />
+        <label for="project-details">Project Details</label>
+        <textarea id="project-details" wrap="soft" name="project-details" rows="8" required></textarea>
+        <button class="button" type="submit">Submit</button>
+    </form>
+</div>
+<style lang="scss">
+    .form {
+        background-color: rgba(#0B120D, .65);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--c-primary);
+        padding: 3rem 2rem;
+
+        h2 {
+            --flow-space: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-size: var(--s-md);
+            color: var(--c-primary);
+        }
+
+        hr {
+            --flow-space: 1rem;
+            max-width: 5rem;
+            border: 1px solid var(--c-primary);
+        }
+
+        form {
+            --flow-space: 4rem;
+        }
+
+        @media (min-width: 50rem) {
+            padding: 3rem 4rem;
+        }
+    }
+
+    label,
+    button.button {
+        display: block;
+    }
+
+    label {
+        --flow-space: 2rem;
+        text-transform: uppercase;
+        line-height: 1;
+        font-size: var(--s-xs);
+        color: var(--c-primary);
+    }
+
+    input,
+    textarea {
+        --flow-space: .75rem;
+        background-color: rgba(#000, .25);
+        border: 1px solid var(--c-primary);
+        border-radius: 8px;
+        width: 100%;
+        color: var(--c-secondary);
+        padding: .75rem 1rem;
+        outline: none;
+        transition: background-color .25s ease-in-out;
+
+        &:focus {
+            background-color: rgba(#000, .5);
+        }
+    }
+
+    button.button {
+        --flow-space: 3rem;
+        display: block;
+        margin-inline: auto;
+    }
+</style>

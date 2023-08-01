@@ -1,0 +1,4 @@
+# Redirects from what the browser requests to what we serve
+/blog                                   /writing
+/blog/yet-another-website-rebuild-11ty  /writing/yet-another-website-rebuild-11ty
+/blog/adding-netlify-cms-to-11ty        /writing/adding-netlify-cms-to-11ty
