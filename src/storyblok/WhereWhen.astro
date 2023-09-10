@@ -20,14 +20,14 @@
 
         .heading,
         .content {
-            padding: 100px;
+            padding: 100px 1.5rem;
         }
 
         .heading {
             background-color: #012F2C;
             h2 {
                 color: #fff;
-                font-size: clamp(4.375rem, 2.0313rem + 7.5vw, 6.25rem);
+                font-size: clamp(3.5rem, 0.0625rem + 11vw, 6.25rem);
                 text-align: center;
                 
                 em,
@@ -96,6 +96,13 @@
         }
 
         @media (min-width: 768px) {
+            .heading,
+            .content {
+                padding: 100px;
+            }
+        }
+
+        @media (min-width: 1024px) {
             grid-template-columns: 1fr 1fr;
         }
     }

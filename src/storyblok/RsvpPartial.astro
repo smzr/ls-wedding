@@ -20,7 +20,7 @@ const { blok } = Astro.props;
 
         .heading,
         .cta {
-            padding: 100px;
+            padding: 100px 1.5rem;
         }
 
         .heading {
@@ -30,7 +30,7 @@ const { blok } = Astro.props;
             
             h2 {
                 color: #fff;
-                font-size: clamp(4.375rem, 2.0313rem + 7.5vw, 6.25rem);
+                font-size: clamp(3.5rem, 0.0625rem + 11vw, 6.25rem);
                 text-align: center;
                 
                 em,
@@ -47,9 +47,8 @@ const { blok } = Astro.props;
         .cta {
             background-color: #D2E0DB;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             
-
             .content {
                 background-color: #012F2C;
                 color: #fff;
@@ -87,8 +86,19 @@ const { blok } = Astro.props;
         }
 
         @media (min-width: 768px) {
-            grid-template-columns: 1fr 1fr;
+            .heading,
+            .cta {
+                padding: 100px 1.5rem;
+            }
             
+            .cta {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: 1fr 1fr;
+
             .cta {
                 order: -1;
             }

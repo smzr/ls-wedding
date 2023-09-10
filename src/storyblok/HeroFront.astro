@@ -17,22 +17,23 @@ const { blok } = Astro.props;
         background-size: cover;
         background-position: center;
         min-height: calc(100vh - 200px);
-        padding: 100px;
+        padding: 1rem;
         display: grid;
         place-items: center;
 
         > .content {
             background-color: #fff;
-            padding: 50px;
+            padding: 1.5rem;
             text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 50px;
+            gap: 30px;
 
             .foot {
                 display: flex;
+                flex-direction: column;
                 align-items: center;
-                gap: 3rem;
+                gap: 1rem;
 
                 time {
                     font-family: 'Didot', serif;
@@ -43,27 +44,48 @@ const { blok } = Astro.props;
                     color: #417E74;
                     font-size: var(--s-huge);
                 }
-
-                > * + * {
-                    position: relative;
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        left: -1.5rem;
-                        top: 50%;
-                        transform: translate(-50%, -50%);
-                        width: 8px;
-                        height: 8px;
-                        border-radius: 50%;
-                        background-color: #E2C08A;
-                    }
-                }
             }
         }
 
         h1 {
             em {
                 color: #012F2C;
+            }
+        }
+
+        @media (min-width: 768px) {
+            > .content {
+                gap: 30px;
+                padding: 50px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            padding: 100px;
+
+            > .content {
+                gap: 50px;
+                padding: 50px;
+
+                .foot {
+                    flex-direction: row;
+                    gap: 3rem;
+
+                    > * + * {
+                        position: relative;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: -1.5rem;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 8px;
+                            height: 8px;
+                            border-radius: 50%;
+                            background-color: #E2C08A;
+                        }
+                    }
+                }
             }
         }
     }

@@ -17,27 +17,36 @@ const today = new Date();
         text-align: center;
         text-transform: uppercase;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 3rem;
 		margin-inline: 30px;
-
-        @media (min-width: 768px) {
-            margin-inline: 100px;
-        }
 		
         > * + * {
             position: relative;
             &::before {
                 content: '';
                 position: absolute;
-                left: -1.5rem;
-                top: 50%;
+                top: -1.5rem;
+                left: 50%;
                 transform: translate(-50%, -50%);
                 width: 8px;
                 height: 8px;
                 border-radius: 50%;
                 background-color: #E2C08A;
+            }
+        }
+
+        @media (min-width: 768px) {
+            margin-inline: 100px;
+            flex-direction: row;
+
+            > * + * {
+                &::before {
+                    left: -1.5rem;
+                    top: 50%;
+                }
             }
         }
     }
