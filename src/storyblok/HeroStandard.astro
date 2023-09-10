@@ -24,7 +24,7 @@ const content = renderRichText(blok.content, {
     .hero {
         position: relative;
         text-align: center;
-        padding: 10rem 100px 100px;
+        padding: 100px 1.5rem;
         font-size: var(--s-xxl);
         font-weight: 350;
         font-style: oblique;
@@ -44,7 +44,7 @@ const content = renderRichText(blok.content, {
             top: 0;
             left: 50%;
             width: 1px;
-            height: 8.5rem;
+            height: 5rem;
             background-color: #012F2C;
         }
     }
@@ -85,6 +85,16 @@ const content = renderRichText(blok.content, {
             &:hover {
                 border-color: #417E74;
                 background-color: #417E74;
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        .hero {
+            padding: 10rem 100px 100px;
+
+            &::before {
+                height: 8.5rem;
             }
         }
     }
