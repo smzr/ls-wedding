@@ -14,11 +14,11 @@ import { Icon } from 'astro-icon';
 		<HeaderLink href="/photos">Photos</HeaderLink>
 		<HeaderLink href="/updates">Updates</HeaderLink>
 		<HeaderLink href="/contact">Contact</HeaderLink>
-		<button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle" type="button">
+		<button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle" type="button"  transition:persist>
 			<svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
 		</button>
 	</nav>
-	<div class="navbar-sidebar__backdrop" role="presentation"></div>
+	<div class="navbar-sidebar__backdrop" role="presentation"  transition:persist></div>
 	<aside class="navbar-sidebar">
 		<div class="navbar-sidebar__header">
 			<Icon name="ls-logo"/>
