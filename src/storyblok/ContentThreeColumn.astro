@@ -31,9 +31,10 @@ const right = renderContent(blok.right);
 <style lang="scss" is:global>
     .three-column {
         display: grid;
+        grid-auto-rows: 1fr;
 
         .content {
-            padding: 1rem 50px;
+            padding: 50px 1.5rem;
             text-align: center;
             text-wrap: balance;
 
@@ -58,7 +59,7 @@ const right = renderContent(blok.right);
             }
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
             grid-template-columns: repeat(3, 1fr);
 
             .content {
