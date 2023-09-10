@@ -26,9 +26,12 @@ import { Icon } from 'astro-icon';
 		<div class="navbar-sidebar__body">
 		<nav class="menu">
 			<HeaderLink href="/">Home</HeaderLink>
-			<!-- <HeaderLink href="/about">About</HeaderLink>
-			<HeaderLink href="/services">Services</HeaderLink> -->
-			<HeaderLink href="/writing">Writing</HeaderLink>
+			<HeaderLink href="/rsvp">R.S.V.P</HeaderLink>
+			<HeaderLink href="/details">Details</HeaderLink>
+			<HeaderLink href="/wedding-gift">Wedding Gift</HeaderLink>
+			<HeaderLink href="/menu">Menu</HeaderLink>
+			<HeaderLink href="/photos">Photos</HeaderLink>
+			<HeaderLink href="/updates">Updates</HeaderLink>
 			<HeaderLink href="/contact">Contact</HeaderLink>
 		</nav>
 		</div>
@@ -70,7 +73,6 @@ import { Icon } from 'astro-icon';
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: flex-end;
-		gap: var(--gutter);
 
 		> .navbar__toggle {
 			display: none;
@@ -78,7 +80,6 @@ import { Icon } from 'astro-icon';
 			justify-content: center;
 			background: none;
 			border: none;
-			color: var(--c-primary);
 			cursor: pointer;
 			padding: 0;
 			text-decoration: none;
@@ -105,7 +106,7 @@ import { Icon } from 'astro-icon';
 
 	.navbar-sidebar {
 		display: none;
-		background: linear-gradient(180deg, #151514, #3D3E2F) no-repeat;
+		background-color: #fff;
 		width: 80vw;
 		transform: translateX(100%);
 		transition: transform 0.3s ease;
@@ -126,7 +127,6 @@ import { Icon } from 'astro-icon';
 			justify-content: center;
 			align-items: center;
 			padding: 1.25rem 2rem;
-			background-color: #0B120D;
 			line-height: 1;
 
 			> svg {
