@@ -1,0 +1,91 @@
+<section class="form">
+    <div class="intro flow">
+        <p>We can't wait to celebrate with you. For any questions, or to give us a tip, be in touch!</p>
+        <p><strong>CONTACT DETAILS</strong></p>
+        <p><a href="mailto:lukeandsammie@gmail.com">lukeandsammie@gmail.com</a></p>
+    </div>
+    <form
+        netlify
+        name="contact"
+        method="POST"
+        action="/thank-you"
+        >
+        <input type="hidden" name="form-name" value="contact" />
+        <input id="firstname" type="text" name="firstname" placeholder="First Name" />
+        <input id="lastname" type="text" name="lastname" placeholder="Last Name" />
+        <input id="email" type="email" name="email" placeholder="Email" required />
+        <input id="subject" type="text" name="subject" placeholder="Subject" />
+        <textarea id="message" wrap="soft" name="message" placeholder="Message" rows="8" required></textarea>
+        <button class="button" type="submit">Submit</button>
+    </form>
+</section>
+<style lang="scss">
+    section.form {
+        background-color: #012F2C;
+        padding: 100px;
+        padding-top: 0;
+        margin-top: -70px;
+        position: relative;
+        z-index: 200;
+
+        .intro {
+            --flow-space: .5em;
+            max-inline-size: 32ch;
+            margin-inline: auto;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 80px;
+            
+            strong {
+                font-weight: 300;
+                color: #417E74;
+            }
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+        }
+
+        form {
+            background-color: #D2E0DB;
+            padding: 3rem 100px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem 100px;
+
+            > input {
+                flex: 1 1 350px;
+            }
+
+            input,
+            textarea {
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid #417E74;
+                width: 100%;
+                color: var(--c-secondary);
+                padding: .75rem 0;
+                outline: none;
+            }
+
+            textarea {
+                border: 1px solid #417E74;
+                margin-top: 2rem;
+                padding: 1rem;
+            }
+
+            button.button {
+                background-color: #012F2C;
+                color: #fff;
+                border: none;
+                display: block;
+                margin-inline: auto;
+                font-size: var(--s-sm);
+                margin-top: 1rem;
+                padding: 1em 3.5em;
+            }
+        }
+    }
+</style>

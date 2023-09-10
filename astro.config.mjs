@@ -24,6 +24,7 @@ export default defineConfig({
       gallery: 'storyblok/Gallery',
       updateList: 'storyblok/UpdateList',
       update: 'storyblok/Update',
+      contactForm: 'storyblok/ContactForm',
     }
   })],
   experimental: {
