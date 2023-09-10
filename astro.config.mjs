@@ -23,6 +23,7 @@ export default defineConfig({
       contentThreeColumn: 'storyblok/ContentThreeColumn',
       gallery: 'storyblok/Gallery',
       updateList: 'storyblok/UpdateList',
+      update: 'storyblok/Update',
     }
   })],
   experimental: {
