@@ -22,11 +22,11 @@
 <style lang="scss">
     section.form {
         background-color: #012F2C;
-        padding: 100px;
+        padding: 50px 1rem;
         padding-top: 0;
-        margin-top: -70px;
+        margin-top: -20px;
         position: relative;
-        z-index: 200;
+        z-index: 80;
 
         .intro {
             --flow-space: .5em;
@@ -34,7 +34,8 @@
             margin-inline: auto;
             color: #fff;
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 40px;
+            word-wrap: break-word;
             
             strong {
                 font-weight: 300;
@@ -50,10 +51,10 @@
 
         form {
             background-color: #D2E0DB;
-            padding: 3rem 100px;
+            padding: 3rem 1.5rem;
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem 100px;
+            gap: 1rem 100px;
 
             > input {
                 flex: 1 1 350px;
@@ -65,7 +66,6 @@
                 border: none;
                 border-bottom: 1px solid #417E74;
                 width: 100%;
-                color: var(--c-secondary);
                 padding: .75rem 0;
                 outline: none;
             }
@@ -85,6 +85,20 @@
                 font-size: var(--s-sm);
                 margin-top: 1rem;
                 padding: 1em 3.5em;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            padding: 0 100px 100px;
+            margin-top: -70px;
+
+            .intro {
+                margin-bottom: 80px;
+            }
+
+            form {
+                padding: 3rem 100px;
+                gap: 2rem 100px;
             }
         }
     }
