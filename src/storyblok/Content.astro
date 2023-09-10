@@ -22,7 +22,7 @@ const content = renderRichText(blok.content, {
 </section>
 <style lang="scss" is:global>
     .content-blok .content {
-        padding: 100px;
+        padding: 100px 1.5rem;
         max-width: 1150px;
         margin-inline: auto;
         text-align: center;
@@ -30,6 +30,10 @@ const content = renderRichText(blok.content, {
         .button {
             font-size: var(--s-sm);
             padding: 1em 1.5em;
+        }
+
+        @media (min-width: 768px) {
+            padding: 100px;
         }
     }
 </style>
