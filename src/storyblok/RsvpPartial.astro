@@ -1,0 +1,97 @@
+---
+const { blok } = Astro.props;
+---
+<section class="rsvp-partial">
+    <div class="heading">
+        <span class="eyebrow">Ready to commit?</span>
+        <h2><i>Please</i><br>R.S.V.P</h2>
+    </div>
+    <div class="cta">
+        <div class="content flow">
+            <h3>Click below to let us know</h3>
+            <a href="/rsvp" class="button">R.S.V.P</a>
+        </div>
+        <div class="image"><img src={`${blok.image.filename}`}></div>
+    </div>
+</section>
+<style lang="scss" is:global>
+    .rsvp-partial {
+        display: grid;
+
+        .heading,
+        .cta {
+            padding: 100px;
+        }
+
+        .heading {
+            background-color: #012F2C;
+            display: grid;
+            place-content: center;
+            
+            h2 {
+                color: #fff;
+                font-size: clamp(4.375rem, 2.0313rem + 7.5vw, 6.25rem);
+                text-align: center;
+                
+                em,
+                i {
+                    color: #417E74;
+                }
+            }
+
+            .eyebrow {
+                color: #fff;
+            }
+        }
+
+        .cta {
+            background-color: #D2E0DB;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            
+
+            .content {
+                background-color: #012F2C;
+                color: #fff;
+                padding: 6rem 2rem;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                h3 {
+                    font-family: 'Futura', sans-serif;
+                    font-weight: 300;
+                    color: inherit;
+                    text-transform: none;
+                    text-wrap: balance;
+                    letter-spacing: 0.1em;
+                    line-height: 1.3;
+                    font-size: var(--s-xxl);
+                }
+            }
+
+            .image {
+                width: 100%;
+                height: 100%;
+                position: relative;
+
+                img {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            
+            .cta {
+                order: -1;
+            }
+        }
+    }
+</style>

@@ -1,0 +1,60 @@
+---
+import { storyblokEditable, renderRichText } from "@storyblok/astro";
+const { blok } = Astro.props;
+
+const content = renderRichText(blok.content, {
+  resolver: (component, blok) => {
+    switch (component) {
+        case "eyebrow":
+            return `<span class="eyebrow">${blok.content}</span>`;
+        case "button":
+            return `<a href="${blok.link.cached_url}" class="button">${blok.text}</a>`;
+        default:
+            return `Component ${component} not found`;
+    }
+  },
+});
+---
+<section {...storyblokEditable(blok)} class={`image-banner-cta`} style={`background-image: url("${blok.image.filename}");`}>
+    <a class="content flow" href={`${blok.link.cached_url}`}><Fragment set:html={content}/></a>
+</section>
+<style lang="scss" is:global>
+    .image-banner-cta {
+        position: relative;
+        display: grid;
+        place-items: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        min-height: calc(100vh - 200px);
+        
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        > .content {
+            position: relative;
+            text-align: center;
+            padding: 80px;
+            text-align: center;
+            max-width: 800px;
+            text-decoration: none;
+            z-index: 2;
+
+            h2 {
+                font-size: clamp(4.375rem, 2.0313rem + 7.5vw, 6.25rem);
+            }
+            
+            h2,
+            .eyebrow {
+                color: white;
+            }
+        }
+    }
+</style>

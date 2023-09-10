@@ -1,0 +1,69 @@
+---
+import { storyblokEditable, RichTextSchema, renderRichText } from "@storyblok/astro";
+const { blok } = Astro.props;
+
+function renderContent(content) {
+    return renderRichText(content, {
+        resolver: (component, blok) => {
+            switch (component) {
+                case "eyebrow":
+                    return `<span class="eyebrow">${blok.content}</span>`;
+                case "button":
+                    return `<a href="${blok.link.cached_url}" class="button">${blok.text}</a>`;
+                default:
+                    return `Component ${component} not found`;
+            }
+        },
+    })
+};
+
+const left = renderContent(blok.left);
+const middle = renderContent(blok.middle);
+const right = renderContent(blok.right);
+
+
+---
+<section {...storyblokEditable(blok)} class="three-column">
+    <div class="content left flow"><Fragment set:html={left}/></div>
+    <div class="content middle flow"><Fragment set:html={middle}/></div>
+    <div class="content right flow"><Fragment set:html={right}/></div>
+</section>
+<style lang="scss" is:global>
+    .three-column {
+        display: grid;
+
+        .content {
+            padding: 1rem 50px;
+            text-align: center;
+            text-wrap: balance;
+
+            &.middle {
+                background-color: #012F2C;
+                color: #fff;
+
+                .button {
+                    background-color: #417E74;
+                    color: #fff;
+                    border: none;
+                }
+            }
+
+            &.right {
+                background-color: #417E74;
+                color: #fff;
+
+                .eyebrow {
+                    color: #012F2C;
+                }
+            }
+        }
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+
+            .content {
+                padding: 50px 70px;
+            }
+        }
+    }
+</style>

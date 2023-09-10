@@ -1,0 +1,61 @@
+---
+import { storyblokEditable, RichTextSchema, renderRichText } from "@storyblok/astro";
+const { blok } = Astro.props;
+
+const left = renderRichText(blok.left);
+const right = renderRichText(blok.right);
+---
+<section {...storyblokEditable(blok)} class="two-column">
+    <div class="content left"><Fragment set:html={left}/></div>
+    <div class="content right flow"><Fragment set:html={right}/></div>
+</section>
+<style lang="scss" is:global>
+    .two-column {
+        display: grid;
+
+        .content {
+            padding: 100px 1rem;
+            max-width: 1150px;
+            margin-inline: auto;
+            display: grid;
+            place-items: center;
+
+            h1,
+            h2,
+            h3,
+            h4,
+            {
+                text-align: center;
+                line-height: 2;
+                color: #012F2C;
+
+                em,
+                i {
+                    color: #417E74;
+                }
+            }
+
+            &.left {
+                background-color: #012F2C;
+
+                h2 {
+                    color: #fff;
+                    text-align: center;
+                    
+                    em,
+                    i {
+                        color: #417E74;
+                    }
+                }
+            }
+        }
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+
+            .content {
+                padding: 100px;
+            }
+        }
+    }
+</style>

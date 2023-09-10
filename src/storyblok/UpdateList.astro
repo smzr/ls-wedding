@@ -1,0 +1,40 @@
+---
+import { storyblokEditable, renderRichText, useStoryblokApi } from '@storyblok/astro'
+
+const { blok } = Astro.props;
+const storyblokApi = useStoryblokApi();
+
+const { data: posts } = await storyblokApi.get('cdn/stories', {
+  version: import.meta.env.DEV ? "draft" : "published",
+  content_type: 'update',
+  sort_by: 'first_published_at:desc',
+});
+---
+<section {...storyblokEditable(blok)}>
+    <ul class="updates">
+        {posts.stories.map(post => (
+        <li class="flow">
+            <h3>{post.content.title}</h3>
+            <Fragment set:html={renderRichText(post.content.content)}/>
+        </li>
+        ))}
+    </ul>
+</section>
+<style lang="scss">
+    ul.updates {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        > li {
+            margin-bottom: 50px;
+            border: 1px solid #012F2C;
+            padding: 40px 50px;
+
+            h3 {
+                color: #012F2C;
+                font-size: var(--s-xl);
+            }
+        }
+    }
+</style>

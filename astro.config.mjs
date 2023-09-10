@@ -10,11 +10,22 @@ export default defineConfig({
     accessToken: env.STORYBLOK_TOKEN,
     components: {
       page: 'storyblok/Page',
-      blogPost: 'storyblok/BlogPost',
-      blogPostList: 'storyblok/BlogPostList',
       contentImage: 'storyblok/ContentImage',
-      eyebrow: 'storyblok/Eyebrow',
-      contact: 'storyblok/Contact',
+      heroStandard: 'storyblok/HeroStandard',
+      heroFront: 'storyblok/HeroFront',
+      heroImage: 'storyblok/HeroImage',
+      whereWhen: 'storyblok/WhereWhen',
+      rsvpPartial: 'storyblok/RsvpPartial',
+      imageBannerCTA: 'storyblok/ImageBannerCTA',
+      backgroundImage: 'storyblok/BackgroundImage',
+      content: 'storyblok/Content',
+      contentTwoColumn: 'storyblok/ContentTwoColumn',
+      contentThreeColumn: 'storyblok/ContentThreeColumn',
+      gallery: 'storyblok/Gallery',
+      updateList: 'storyblok/UpdateList',
     }
-  })]
+  })],
+  experimental: {
+    viewTransitions: true
+  }
 });

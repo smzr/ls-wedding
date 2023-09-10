@@ -1,0 +1,16 @@
+---
+import { storyblokEditable, RichTextSchema, renderRichText } from "@storyblok/astro";
+const { blok } = Astro.props;
+
+---
+<section {...storyblokEditable(blok)} class={`background-image`} style={`background-image: url("${blok.image.filename}");`}>
+</section>
+<style lang="scss" is:global>
+    .background-image {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        min-height: calc(100vh - 200px);
+    }
+</style>

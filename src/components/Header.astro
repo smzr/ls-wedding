@@ -4,12 +4,15 @@ import { Icon } from 'astro-icon';
 ---
 
 <header class="site-header">
-	<Icon name="smzr-logo"/>
+	<Icon name="ls-logo"/>
 	<nav class="navbar">
 		<HeaderLink href="/">Home</HeaderLink>
-		<!-- <HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="/services">Services</HeaderLink> -->
-		<HeaderLink href="/writing">Writing</HeaderLink>
+		<HeaderLink href="/rsvp">R.S.V.P</HeaderLink>
+		<HeaderLink href="/details">Details</HeaderLink>
+		<HeaderLink href="/wedding-gift">Wedding Gift</HeaderLink>
+		<HeaderLink href="/menu">Menu</HeaderLink>
+		<HeaderLink href="/photos">Photos</HeaderLink>
+		<HeaderLink href="/updates">Updates</HeaderLink>
 		<HeaderLink href="/contact">Contact</HeaderLink>
 		<button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle" type="button">
 			<svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
@@ -18,7 +21,7 @@ import { Icon } from 'astro-icon';
 	<div class="navbar-sidebar__backdrop" role="presentation"></div>
 	<aside class="navbar-sidebar">
 		<div class="navbar-sidebar__header">
-			<Icon name="smzr-logo"/>
+			<Icon name="ls-logo"/>
 		</div>
 		<div class="navbar-sidebar__body">
 		<nav class="menu">
@@ -47,15 +50,15 @@ import { Icon } from 'astro-icon';
 		justify-content: space-between;
 		gap: 1rem;
 		align-items: center;
-		padding: 1.25rem 2rem;
-		background-color: #0B120D;
+		padding: 32px 100px;
+		background-color: #FFF;
 		line-height: 1;
 
 		z-index: 100;
 
 		> svg {
-			max-height: 2.5rem;
-			color: var(--c-primary);
+			height: 36px;
+			max-height: 36px;
 		}
 	}
 
@@ -124,7 +127,6 @@ import { Icon } from 'astro-icon';
 
 			> svg {
 				max-height: 2.5rem;
-				color: var(--c-primary);
 			}
 		}
 

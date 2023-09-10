@@ -1,0 +1,35 @@
+---
+import { storyblokEditable, RichTextSchema, renderRichText } from "@storyblok/astro";
+const { blok } = Astro.props;
+
+const background = blok.background;
+
+const content = renderRichText(blok.content, {
+  resolver: (component, blok) => {
+    switch (component) {
+        case "eyebrow":
+            return `<span class="eyebrow">${blok.content}</span>`;
+        case "button":
+            return `<a href="${blok.link.cached_url}" class="button">${blok.text}</a>`;
+        default:
+            return `Component ${component} not found`;
+    }
+  },
+});
+---
+<section {...storyblokEditable(blok)} class={`content-blok ${background}`}>
+    <div class="content flow"><Fragment set:html={content}/></div>
+</section>
+<style lang="scss" is:global>
+    .content-blok .content {
+        padding: 100px;
+        max-width: 1150px;
+        margin-inline: auto;
+        text-align: center;
+
+        .button {
+            font-size: var(--s-sm);
+            padding: 1em 1.5em;
+        }
+    }
+</style>

@@ -1,0 +1,102 @@
+<section class="where-when">
+    <div class="heading">
+        <span class="eyebrow">Join Us</span>
+        <h2>Where<br><i>&</i>When</h2>
+    </div>
+    <div class="content flow">
+        <time datetime="2024-06-24">Monday, 24 June 2024</time>
+        <address>Southdowns Manor, Dumpford Ln, Petersfield, GU31 5JN</address>
+        <ul>
+            <li><span class="time-num">12</span><span class="time-abbr">pm</span> Reception</li>
+            <li><span class="time-num">1</span><span class="time-abbr">pm</span> Ceremony</li>
+            <li><span class="time-num">3</span><span class="time-abbr">pm</span> Celebrations</li>
+        </ul>
+        <a href="/details" class="arrow-link">See Full Details</a>
+    </div>
+</section>
+<style lang="scss" is:global>
+    .where-when {
+        display: grid;
+
+        .heading,
+        .content {
+            padding: 100px;
+        }
+
+        .heading {
+            background-color: #012F2C;
+            h2 {
+                color: #fff;
+                font-size: clamp(4.375rem, 2.0313rem + 7.5vw, 6.25rem);
+                text-align: center;
+                
+                em,
+                i {
+                    color: #417E74;
+                }
+            }
+        }
+
+        .content {
+            text-align: center;
+            --flow-space: 2rem;
+
+            time {
+                text-transform: uppercase;
+                font-weight: 350;
+                font-size: var(--s-xl);
+            }
+
+            address {
+                --flow-space: 1rem;
+                text-transform: uppercase;
+                font-style: normal;
+                font-weight: 300;
+                font-size: var(--s-md);
+            }
+
+            ul {
+                list-style: none;
+                text-align: left;
+                width: fit-content;
+                margin-inline: auto;
+                padding: 0;
+                margin-bottom: 0;
+
+                li {
+                    font-weight: 350;
+                    font-size: var(--s-xl);
+
+                    + li {
+                        margin-top: 20px;
+                    }
+                }
+
+                .time-num {
+                    font-size: 65px;
+                    font-family: 'Didot', serif;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                    line-height: 1;
+                    letter-spacing: 0.1em;
+                    color: #417E74;
+                }
+
+                .time-abbr {
+                    text-transform: uppercase;
+                    color: #417E74;
+                }
+            }
+
+            a {
+                display: block;
+                text-decoration: none;
+                color: #012F2C;
+            }
+        }
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+</style>

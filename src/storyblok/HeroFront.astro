@@ -1,0 +1,70 @@
+---
+import { storyblokEditable, RichTextSchema, renderRichText } from "@storyblok/astro";
+const { blok } = Astro.props;
+
+---
+<section {...storyblokEditable(blok)} class={`hero-front`} style={`background-image: url("${blok.image.filename}");`}>
+    <div class="content">
+        <p class="head">Join us for the upcoming wedding of</p>
+        <h1>Luke<br><em>&</em>Sam</h1>
+        <p class="foot"><span>Two become one</span><time datetime="2024-06-24">24.06.24</time><span>All become drunk</span></p>
+    </div>
+</section>
+<style lang="scss" is:global>
+    .hero-front {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        min-height: calc(100vh - 200px);
+        padding: 100px;
+        display: grid;
+        place-items: center;
+
+        > .content {
+            background-color: #fff;
+            padding: 50px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+
+            .foot {
+                display: flex;
+                align-items: center;
+                gap: 3rem;
+
+                time {
+                    font-family: 'Didot', serif;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                    line-height: 0.75;
+                    letter-spacing: 0.1em;
+                    color: #417E74;
+                    font-size: var(--s-huge);
+                }
+
+                > * + * {
+                    position: relative;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: -1.5rem;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        background-color: #E2C08A;
+                    }
+                }
+            }
+        }
+
+        h1 {
+            em {
+                color: #012F2C;
+            }
+        }
+    }
+</style>

@@ -17,28 +17,22 @@ const content = renderRichText(blok.content, {
   },
 });
 ---
-<section {...storyblokEditable(blok)} class={`wrapper ${layout}`}>
+<section {...storyblokEditable(blok)} class={`${layout}`}>
     <div class="content flow"><Fragment set:html={content}/></div>
-    <div class="image"><img src={`${blok.image.filename}/m/800x1000/smart`} alt="Hero Image"></div>
+    <div class="image"><img src={`${blok.image.filename}`}></div>
 </section>
 <style lang="scss" is:global>
     .content-image {
-        --switcher-vertical-alignment: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2.5rem var(--gutter, 2rem);
-		align-items: var(--switcher-vertical-alignment, flex-start);
+        display: grid;
 
         .content {
+            padding: 50px 0;
             h1,
             h2 {
                 + * {
                     --flow-space: clamp( 1.375rem, 1.2rem + .89vw, 2rem );
                 }
             }
-
-            h1 { font-size: var(--s-giant); }
-            h2 { font-size: var(--s-xxl); }
 
             .button {
                 --flow-space: clamp(1.5rem, 0.4231rem + 3.0769vw, 2.5rem);
@@ -48,7 +42,8 @@ const content = renderRichText(blok.content, {
         .image {
             position: relative;
             width: 100%;
-            aspect-ratio: 4 / 5;
+            height: 100%;
+            aspect-ratio: 1;
 
             img {
                 position: absolute;
@@ -57,15 +52,29 @@ const content = renderRichText(blok.content, {
                 object-fit: cover;
             }
         }
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+
+            .content {
+                padding: 100px;
+            }
+
+            .image {
+                aspect-ratio: auto;
+            }
+        }
     }
 
     .content-image > * {
-        flex-grow: 1;
-        flex-basis: calc(( 50rem - 100%) * 999);
     }
 
     .image-content {
         @extend .content-image;
-        flex-direction: row-reverse;
+        @media (min-width: 768px) {
+            .image {
+                order: -1;
+            }
+        }
     }
 </style>

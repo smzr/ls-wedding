@@ -1,24 +1,21 @@
 .button {
-    background-color: var(--c-primary);
-    border-radius: 2em;
-    padding: 1em 3.5em;
+    background-color: transparent;
+    padding: .75em 2em;
     display: inline-flex;
     align-items: center;
-    border: none;
-    outline: 2px solid transparent;
+    border: 1px solid #E2C08A;
     text-decoration: none;
     cursor: pointer;
     position: relative;
     overflow: hidden;
     line-height: 1 !important;
-    font-weight: 500;
-    color: var(--c-black);
-    transition: outline 0.3s ease-in-out;
+    font-weight: 300;
+    font-size: var(--s-xs);
+    color: inherit;
+    text-transform: uppercase;
 
     &:hover,
     &:focus {
-        outline: 2px solid var(--c-orange);
-        outline-offset: 1px;
-        text-decoration: none;
+        border-color: #fff;
     }
 }

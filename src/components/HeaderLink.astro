@@ -15,20 +15,21 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '');
 		display: inherit;
 		align-items: center;
 		justify-content: center;
-		color: var(--c-primary);
+		color: #000;
 		text-decoration: none;
-		font-weight: 500;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		transition: color 200ms ease-in;
 
 		&:hover {
-			color: var(--c-orange);
+			color: #E2C08A;
 			text-decoration: none;
 		}
 
 		&.active {
 			text-decoration: underline;
+			text-decoration-thickness: 1px;
+			text-underline-offset: 0.25em;
 		}
 	}
 </style>

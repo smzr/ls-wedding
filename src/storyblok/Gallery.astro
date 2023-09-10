@@ -1,0 +1,51 @@
+---
+import { storyblokEditable, RichTextSchema, renderRichText } from "@storyblok/astro";
+const { blok } = Astro.props;
+
+const images = blok.images;
+---
+<section {...storyblokEditable(blok)} class="gallery">
+    <div class="heading">
+        <span class="eyebrow">The Venue in Photos</span>
+    </div>
+    <ul>
+        {images.map((image) => (
+            <li>
+                <img src={`${image.filename}`} alt={`${image.alt}`} />
+            </li>
+        ))}
+    </ul>
+</section>
+<style lang="scss" is:global>
+    .gallery {
+        background-color: #012F2C;
+        padding: 50px 100px;
+
+        > ul {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 100px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #012F2C;
+
+            > li {
+                overflow: hidden;
+
+                &:nth-child(6n + 4),
+                &:nth-child(6n + 1) {
+                grid-column: auto /span 2;
+                grid-row: auto /span 2;
+                }
+
+                > img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+</style>
