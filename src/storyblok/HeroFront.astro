@@ -13,7 +13,7 @@ const { blok } = Astro.props;
 <style lang="scss" is:global>
     .hero-front {
         background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-attachment: scroll;
         background-size: cover;
         background-position: center;
         min-height: calc(100vh - 200px);
@@ -62,6 +62,7 @@ const { blok } = Astro.props;
 
         @media (min-width: 1024px) {
             padding: 100px;
+            background-attachment: fixed;
 
             > .content {
                 gap: 50px;
