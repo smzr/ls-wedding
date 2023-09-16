@@ -25,6 +25,8 @@ export default defineConfig({
       updateList: 'storyblok/UpdateList',
       update: 'storyblok/Update',
       contactForm: 'storyblok/ContactForm',
+      attendee: 'storyblok/Attendee',
+      attendeeList: 'storyblok/AttendeeList',
     }
   })],
   experimental: {

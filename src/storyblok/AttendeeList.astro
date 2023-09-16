@@ -1,0 +1,68 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+
+const { blok } = Astro.props;
+let { entries } = blok;
+
+// Sort entries by accepted and then by name
+entries = entries.sort((a, b) => {
+    if (!a.accepted && b.accepted) return -1;
+    if (a.accepted && !b.accepted) return 1;
+
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+
+    return 0;
+});
+---
+<section {...storyblokEditable(blok)} class="attendees">
+    <ul>
+        {entries.map(attendee => (
+        <li class={attendee.accepted ? 'accepted' : null}>
+            <p>{attendee.name}</p>
+            {attendee.accepted && <span>Accepted</span>}
+        </li>
+        ))}
+    </ul>
+</section>
+<style lang="scss">
+    section.attendees {
+        background-color: #012F2C;
+        height: 100%;
+
+        > ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 600px;
+            
+            > li {
+                background-color: rgba(0, 0, 0, .3);
+                display: flex;
+                justify-content: space-between;
+                padding: 20px 50px;
+                color: #fff;
+
+                &:hover:not(.accepted) {
+                    background-color: #417E74;
+                }
+
+                &.accepted {
+                    background-color: rgba(0, 0, 0, .15);
+
+                    p {
+                        opacity: 50%;
+                    }
+
+                    > span {
+                        color: #E2C08A;
+                    }
+                }
+
+                + li {
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+</style>

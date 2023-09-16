@@ -9,6 +9,8 @@ export async function getStaticPaths() {
 	});
 	let links = data.links;
 	links = Object.values(links);
+	let blacklist = [367964479, 370268209];
+	links = links.filter((link: { parent_id: number; }) => !blacklist.includes(link.parent_id));
 	return links.map((link: { slug: any; }) => {
 		return {
 			params: { slug: link.slug === "home" ? undefined : link.slug },
