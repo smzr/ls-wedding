@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
-import storyblok from "@storyblok/astro";
+import storyblok from '@storyblok/astro';
 import { loadEnv } from 'vite';
-import netlify from "@astrojs/netlify/functions";
+import netlify from '@astrojs/netlify/functions';
 const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
 
@@ -9,7 +9,10 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK');
 // https://astro.build/config
 export default defineConfig({
   integrations: [storyblok({
-    accessToken: env.STORYBLOK_TOKEN,
+    accessToken:
+        import.meta.env.VITE_ENVIRONMENT  ===  'preview'
+        ?  env.STORYBLOK_PREVIEW_TOKEN : env.STORYBLOK_PUBLIC_TOKEN,
+    bridge:  import.meta.env.VITE_ENVIRONMENT  ===  'preview'  ? true :  false,
     components: {
       page: 'storyblok/Page',
       contentImage: 'storyblok/ContentImage',
@@ -31,7 +34,7 @@ export default defineConfig({
       attendeeList: 'storyblok/AttendeeList'
     }
   })],
-  output: "hybrid",
-  adapter: netlify(),
+  output: import.meta.env.VITE_ENVIRONMENT  ===  'preview'  ?  'server'  :  'static',
+  adapter: import.meta.env.VITE_ENVIRONMENT === 'preview' ? netlify() : undefined,
   site: 'https://lukeandsam.netlify.app'
 });
