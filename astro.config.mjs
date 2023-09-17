@@ -1,10 +1,12 @@
 import { defineConfig } from 'astro/config';
 import storyblok from "@storyblok/astro";
 import { loadEnv } from 'vite';
+import netlify from "@astrojs/netlify/functions";
 const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
-// https://astro.build/config
 
+
+// https://astro.build/config
 export default defineConfig({
   integrations: [storyblok({
     accessToken: env.STORYBLOK_TOKEN,
@@ -26,10 +28,9 @@ export default defineConfig({
       update: 'storyblok/Update',
       contactForm: 'storyblok/ContactForm',
       attendee: 'storyblok/Attendee',
-      attendeeList: 'storyblok/AttendeeList',
+      attendeeList: 'storyblok/AttendeeList'
     }
   })],
-  experimental: {
-    viewTransitions: true
-  }
+  output: "hybrid",
+  adapter: netlify()
 });
