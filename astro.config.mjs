@@ -32,5 +32,6 @@ export default defineConfig({
     }
   })],
   output: "hybrid",
-  adapter: netlify()
+  adapter: netlify(),
+  site: 'https://lukeandsam.netlify.app'
 });
