@@ -21,7 +21,4 @@ pnpm-debug.log*
 # Local Netlify folder
 .netlify
 
-# Generated Netlify folder (usually not generated!)
-netlify
-
 .vscode/
