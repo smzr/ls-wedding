@@ -1,0 +1,33 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { app } from "../../firebase/server";
+import { getFirestore } from "firebase-admin/firestore";
+
+interface Attendee {
+  name: string;
+  attending: boolean;
+  partyId: string;
+  plusOneName: string;
+  dietaryRequirements: string;
+}
+
+const { id } = Astro.params;
+
+if (!id) {
+  return Astro.redirect("/404");
+}
+
+const db = getFirestore(app);
+const attendeesRef = db.collection("attendees");
+const attendeeSnapshot = await attendeesRef.doc(id).get();
+
+if (!attendeeSnapshot.exists) {
+  return Astro.redirect("/404");
+}
+
+const attendee = attendeeSnapshot.data() as Attendee;
+---
+<Layout title={attendee.name + " - RSVP - Luke & Sam"} description="">
+  <h1>{attendee.name}</h1>
+  <p>Is attending?: {attendee.attending ? "Yes" : "No"}</p>
+</Layout>
