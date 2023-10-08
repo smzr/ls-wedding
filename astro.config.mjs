@@ -35,6 +35,6 @@ export default defineConfig({
     }
   })],
   output: import.meta.env.VITE_ENVIRONMENT  ===  'preview'  ?  'server'  :  'hybrid',
-  adapter: import.meta.env.VITE_ENVIRONMENT === 'preview' ? netlify() : undefined,
+  adapter: netlify(),
   site: 'https://lukeandsam.netlify.app'
 });
