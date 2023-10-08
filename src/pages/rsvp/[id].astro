@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import { app } from "../../firebase/server";
 import { getFirestore } from "firebase-admin/firestore";
-export const prerender = false;
 
 interface Attendee {
   name: string;

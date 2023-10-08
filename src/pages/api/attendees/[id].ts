@@ -1,7 +1,6 @@
 import type { APIRoute } from "astro";
 import { app } from "../../../firebase/server";
 import { getFirestore } from "firebase-admin/firestore";
-export const prerender = false;
 
 const db = getFirestore(app);
 const attendeesRef = db.collection("attendees");

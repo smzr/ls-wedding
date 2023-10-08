@@ -34,7 +34,7 @@ export default defineConfig({
       attendeeList: 'storyblok/AttendeeList'
     }
   })],
-  output: import.meta.env.VITE_ENVIRONMENT  ===  'preview'  ?  'server'  :  'hybrid',
+  output: 'server',
   adapter: netlify(),
   site: 'https://lukeandsam.netlify.app'
 });
