@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import { app } from "../../firebase/server";
 import { getFirestore } from "firebase-admin/firestore";
-export const prerender = false;
 
 interface Attendee {
   name: string;
@@ -29,6 +28,128 @@ if (!attendeeSnapshot.exists) {
 const attendee = attendeeSnapshot.data() as Attendee;
 ---
 <Layout title={attendee.name + " - RSVP - Luke & Sam"} description="">
-  <h1>{attendee.name}</h1>
-  <p>Is attending?: {attendee.attending ? "Yes" : "No"}</p>
+  <main id="main-content">
+    <section class="hero">
+      <div class="content flow"><h1>R.S.V.P</h1></div>
+    </section>
+    <section class="attendee-edit">
+      <form action={`/api/attendees/${id}`} method="POST">
+        <div class="form-row">
+          <p>{attendee.name}</p>
+          <div class="radio-group">
+            <div>
+              <input type="radio" id="attending" name="attending" value="on" checked={attendee.attending} />
+              <label for="attending">I am coming</label>
+            </div>
+            <div>
+              <input type="radio" id="not-attending" name="attending" value="off" checked={!attendee.attending} />
+              <label for="not-attending">I can't make it</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="plusOneName">Name of your +1 (Optional)</label>
+          <input type="text" name="plusOneName" id="plusOneName" value={attendee.plusOneName} />
+        </div>
+        <div class="form-row">
+          <label for="dietaryRequirements">Any Dietary Requirements?</label>
+          <textarea name="dietaryRequirements" id="dietaryRequirements" rows="6">{attendee.dietaryRequirements}</textarea>
+        </div>
+        <button class="button" type="submit">Save</button>
+      </form>
+    </section>
+  </main>
 </Layout>
+<style lang="scss">
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: 100px 1.5rem;
+    font-size: var(--s-xxl);
+    font-weight: 350;
+    font-style: oblique;
+    text-transform: uppercase;
+    background-color: #012F2C;
+    color: #fff;
+
+    h1 {
+      color: #417E74;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 1px;
+      height: 5rem;
+      background-color: #E2C08A;
+    }
+  }
+
+  section.attendee-edit {
+    background-color: #012F2C;
+    color: #fff;
+    height: 100%;
+
+    form {
+      padding: 2rem;
+      margin: 0 auto;
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, .3);
+
+      .form-row {
+        padding-bottom: 1rem;
+
+        .radio-group {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+
+          div {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            input {
+              width: 1rem;
+              height: 1rem;
+            }
+          }
+        }
+
+        input,
+        textarea {
+          display: block;
+          width: 100%;
+          margin: 1rem 0;
+          padding: .5rem;
+          border: 0;
+          border-radius: 0;
+          color: #012F2C;
+        }
+
+        textarea {
+          max-width: 100%;
+          min-width: 100%;
+          min-height: 100px;
+          max-height: 300px;
+        }
+
+        + .form-row {
+          border-top: 1px solid #417E74;
+          padding-top: 1rem;
+        }
+      }
+
+      .button {
+        background-color: #417E74;
+        color: #fff;
+        border: none;
+        margin: auto;
+        display: block;
+        font-size: 1.25rem;
+      }
+    }
+  }
+</style>
