@@ -61,6 +61,11 @@ const attendee = attendeeSnapshot.data() as Attendee;
   </main>
 </Layout>
 <style lang="scss">
+  main {
+    display: flex;
+    flex-direction: column;  
+  }
+
   .hero {
     position: relative;
     text-align: center;
@@ -90,7 +95,7 @@ const attendee = attendeeSnapshot.data() as Attendee;
   section.attendee-edit {
     background-color: #012F2C;
     color: #fff;
-    height: 100%;
+    flex-grow: 1;
 
     form {
       padding: 2rem;

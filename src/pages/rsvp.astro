@@ -53,6 +53,11 @@ attendees.sort((a, b) => {
     </main>
 </Layout>
 <style lang="scss">
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
     .hero {
         position: relative;
         text-align: center;
@@ -81,7 +86,7 @@ attendees.sort((a, b) => {
 
     section.attendees {
         background-color: #012F2C;
-        height: 100%;
+        flex-grow: 1;
 
         > ul {
             list-style: none;
